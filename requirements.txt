@@ -1,0 +1,12 @@
+Flask==2.3.2
+pydub==0.25.1
+openai==1.70.0
+gTTS==2.5.1
+psycopg2-binary
+sqlalchemy 
+python-dotenv 
+werkzeug 
+gtts 
+openai 
+requests 
+beautifulsoup4

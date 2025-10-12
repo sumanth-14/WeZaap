@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home | We Zaap InterviewMate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html,
+body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden; /* Prevents scrollbars */
+    }
+
+        video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures video fills the screen without distortion */
+        z-index: 0; /* Behind all other content */
+        background: #000000; /* Fallback black background if video fails */
+    }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrap {
+        flex: 1;
+        position: relative; /* Ensures content stays above video */
+        z-index: 1; /* Above video */
+    }
+
+        .welcome-container {
+            max-width: 800px;
+            margin: 100px auto;
+            text-align: center;
+            background: rgb(255, 255, 255);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgb(92, 92, 92);
+            z-index: 1;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background: #000000;
+            color: #ffffff;
+            font-size: 0.8rem;
+        }
+
+        .footer a {
+            color: #aaa;
+            margin: 0 5px;
+        }
+
+        /* Override Bootstrap btn-primary for the Start Interview button */
+        .btn-primary {
+            background-color: #000000;
+            /* Green background */
+            border-color: #000000;
+            /* Darker green border */
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            /* Darker green on hover */
+            border-color: #000000;
+            color: #000000;
+        }
+        .btn-primary:active,
+.btn-primary:focus {
+    background-color: #000000; /* Black background when pressed */
+    border-color: #000000;    /* Black border when pressed */
+    color: #ffffff;           /* White text when pressed */
+}
+
+        /* Override Bootstrap navbar background */
+        .navbar.bg-dark {
+            background-color: #000000 !important;
+            /* Soft gray for navbar */
+        }
+
+        .navbar-dark .navbar-brand,
+        .navbar-dark .nav-link {
+            color: #ffffff;
+            /* Ensure text remains white for contrast */
+        }
+
+        .navbar-dark .nav-link:hover {
+            color: #525252;
+            /* Slightly lighter on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="content-wrap">
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">We-Zaap</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="/home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- FLASH MESSAGES -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-info text-center">
+                {% for message in messages %}
+                {{ message }}<br>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            <!-- HOME CONTENT -->
+            <div class="welcome-container">
+                <h1>Welcome to We-Zaap, {{ first_name }}!</h1>
+                <p class="lead"><b>Your AI-powered interview preparation platform.</b></p>
+                <p>Ready to practice your interview skills? Click below to start an interview.</p>
+                <a class="btn btn-primary m-2" href="/landing">Start Interview</a>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>We Zaap InterviewMate<br>All Rights Reserved © 2025</p>
+            <a href="#">Terms of Use</a> |
+            <a href="#">Privacy</a>
+        </div>
+    </div>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'92c27ef02840b093',t:'MTc0Mzk1NTIwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+<video autoplay muted loop id="backgroundVideo">
+    <source src="/static/home2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | We Zaap InterviewMate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrap {
+            flex: 1;
+        }
+
+        body {
+            background: #000000;
+        }
+
+        .register-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+         .btn-primary {
+            background-color: #000000;
+            /* Green background */
+            border-color: #000000;
+            /* Darker green border */
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            /* Darker green on hover */
+            border-color: #000000;
+            color: #000000;
+        }
+        .navbar.bg-dark {
+            background-color: #000000 !important;
+            /* Soft gray for navbar */
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background: #222;
+            color: #ccc;
+            font-size: 0.8rem;
+        }
+
+            .footer a {
+                color: #aaa;
+                margin: 0 5px;
+            }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="content-wrap">
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">We Zaap</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        {% if 'email' not in session %}
+                        <li class="nav-item active"><a class="nav-link" href="/register">Signup</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- FLASH MESSAGES -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-info text-center">
+                {% for message in messages %}
+                {{ message }}<br>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            <!-- REGISTER FORM -->
+            <div class="register-container">
+                <h2 class="text-center">Create Account</h2>
+                <form method="post" action="/register" id="registerForm" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" name="email" type="email" required
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="validateEmail()">
+                        <small class="error" id="emailError">Please enter a valid email address.</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="first_name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="last_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-group">
+                            <input class="form-control" name="password" id="password" type="password" required
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninput="validatePassword()">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password')">Show</button>
+                            </div>
+                        </div>
+                        <small class="error" id="passwordError">
+                            Password must be at least 8 characters long, contain a number, an uppercase letter, and a lowercase letter.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Re-enter Password</label>
+                        <div class="input-group">
+                            <input class="form-control" name="re_password" id="re_password" type="password" required
+                                   oninput="validatePasswordMatch()">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('re_password')">Show</button>
+                            </div>
+                        </div>
+                        <small class="error" id="rePasswordError">Passwords do not match.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select class="form-control" name="role" required>
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="Student">Student</option>
+                            <option value="Professor">Professor</option>
+                            <option value="TA">TA</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Tester">Tester</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" type="submit">Register</button>
+
+                    {% if error %}
+                    <p class="text-danger mt-3 text-center">{{ error }}</p>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>We Zaap InterviewMate<br>All Rights Reserved © 2025</p>
+            <a href="#">Terms of Use</a> |
+            <a href="#">Privacy</a>
+        </div>
+    </div>
+
+    <!-- JS Validations -->
+    <script>
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            input.type = input.type === "password" ? "text" : "password";
+        }
+
+        function validateEmail() {
+            const email = document.querySelector('input[name="email"]');
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+            emailError.style.display = emailPattern.test(email.value) ? 'none' : 'block';
+            return emailPattern.test(email.value);
+        }
+
+        function validatePassword() {
+            const password = document.getElementById('password');
+            const passwordError = document.getElementById('passwordError');
+            const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+            passwordError.style.display = passwordPattern.test(password.value) ? 'none' : 'block';
+            return passwordPattern.test(password.value);
+        }
+
+        function validatePasswordMatch() {
+            const password = document.getElementById('password').value;
+            const rePassword = document.getElementById('re_password').value;
+            const rePasswordError = document.getElementById('rePasswordError');
+
+            rePasswordError.style.display = password === rePassword ? 'none' : 'block';
+            return password === rePassword;
+        }
+
+        function validateForm() {
+            return validateEmail() && validatePassword() && validatePasswordMatch();
+        }
+    </script>
+</body>
+</html>

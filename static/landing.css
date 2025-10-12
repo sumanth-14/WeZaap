@@ -1,0 +1,183 @@
+/* Landing page CSS for WeZaap - Dark theme optimized */
+
+/* Ensure smooth transitions respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Custom focus styles for better accessibility in dark theme */
+.focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+/* Ensure proper contrast for all interactive elements in dark theme */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+/* Improve readability for long text in dark theme */
+p {
+    line-height: 1.6;
+}
+
+/* Ensure proper spacing for mobile */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Custom scrollbar for webkit browsers - dark theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Ensure proper print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        color: black !important;
+        background: white !important;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+}
+
+/* Dark theme specific enhancements */
+.bg-slate-900 {
+    background-color: #0f172a;
+}
+
+.bg-slate-800 {
+    background-color: #1e293b;
+}
+
+.bg-slate-700 {
+    background-color: #334155;
+}
+
+/* Ensure proper contrast ratios for WCAG AA compliance */
+.text-gray-200 {
+    color: #e2e8f0;
+}
+
+.text-gray-300 {
+    color: #cbd5e1;
+}
+
+.text-gray-400 {
+    color: #94a3b8;
+}
+
+/* Enhanced hover states for dark theme */
+.hover\:bg-slate-700:hover {
+    background-color: #334155;
+}
+
+.hover\:border-slate-600:hover {
+    border-color: #475569;
+}
+
+/* FAQ accordion animations for dark theme */
+.faq-content {
+    transition: all 0.3s ease-in-out;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ensure proper focus ring colors for dark theme */
+.focus\:ring-primary:focus {
+    --tw-ring-color: #6366f1;
+}
+
+.focus\:ring-offset-slate-900:focus {
+    --tw-ring-offset-color: #0f172a;
+}
+
+/* Monochrome Black & White Theme Styling */
+.bw-scope img,
+.bw-scope svg { 
+    filter: grayscale(1) contrast(1.05); 
+}
+
+.bw-scope .has-gradient { 
+    background-image: none !important; 
+}
+
+.bw-scope *:not(.allow-color):not(.allow-color *) { 
+    --tw-ring-color: rgb(30 41 59); 
+}
+
+/* Override any colored elements in bw-scope */
+.bw-scope .text-primary,
+.bw-scope .text-blue-400,
+.bw-scope .text-green-400,
+.bw-scope .text-purple-400,
+.bw-scope .text-pink-400,
+.bw-scope .text-orange-400,
+.bw-scope .text-indigo-400 {
+    color: rgb(156 163 175) !important; /* text-gray-400 */
+}
+
+.bw-scope .bg-primary,
+.bw-scope .bg-blue-500,
+.bw-scope .bg-green-500,
+.bw-scope .bg-purple-500,
+.bw-scope .bg-pink-500,
+.bw-scope .bg-orange-500,
+.bw-scope .bg-indigo-500 {
+    background-color: rgb(30 41 59) !important; /* bg-slate-800 */
+}
+
+.bw-scope .border-primary,
+.bw-scope .border-blue-400,
+.bw-scope .border-green-400,
+.bw-scope .border-purple-400,
+.bw-scope .border-pink-400,
+.bw-scope .border-orange-400,
+.bw-scope .border-indigo-400 {
+    border-color: rgb(30 41 59) !important; /* border-slate-800 */
+}
+
+/* Ensure gradients are removed in bw-scope */
+.bw-scope .bg-gradient-to-r,
+.bw-scope .bg-gradient-to-br,
+.bw-scope .bg-gradient-to-l {
+    background-image: none !important;
+    background-color: rgb(30 41 59) !important; /* bg-slate-800 */
+}
