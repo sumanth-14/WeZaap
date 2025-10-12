@@ -23,6 +23,7 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Required for session management
 
+<<<<<<< HEAD
 logging.basicConfig(level=logging.DEBUG)
 
 # Database setup...
@@ -39,6 +40,43 @@ if not os.path.exists(TEMP_DIR):
 try:
     client.models.list()  # Updated to use the new API method
     app.logger.debug(f"OpenAI client initialized successfully!")
+=======
+logging.basicConfig(level=logging.INFO)
+
+# Database setup...
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    app.logger.warning("DATABASE_URL not set, using SQLite fallback")
+    DATABASE_URL = "sqlite:///./test.db"
+
+try:
+    engine = create_engine(DATABASE_URL)
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    Base.metadata.create_all(bind=engine)
+    app.logger.info("Database connection established successfully")
+except Exception as e:
+    app.logger.error(f"Database connection failed: {str(e)}")
+    # Create a fallback SQLite database
+    DATABASE_URL = "sqlite:///./test.db"
+    engine = create_engine(DATABASE_URL)
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    Base.metadata.create_all(bind=engine)
+    app.logger.info("Using SQLite fallback database")
+
+TEMP_DIR = 'tmp_audio'
+RESUME_DIR = 'resumes'
+if not os.path.exists(TEMP_DIR):
+    os.makedirs(TEMP_DIR)
+if not os.path.exists(RESUME_DIR):
+    os.makedirs(RESUME_DIR)
+
+# Use the client directly
+try:
+    # Test the client with a simple call instead of models.list() which can be slow
+    app.logger.info("Initializing OpenAI client...")
+    # We'll test the client when it's actually used, not during startup
+    app.logger.info("OpenAI client initialized successfully!")
+>>>>>>> 18a57e2 (Add .gitignore to exclude venv and temp files)
 except Exception as e:
     app.logger.error(f"Failed to initialize OpenAI client: {str(e)}")
     client = None
@@ -57,6 +95,7 @@ def fetch_knowledge_base():
     knowledge_base = []
     for resource in RESOURCE_URLS:
         try:
+<<<<<<< HEAD
             # In a real environment, this would fetch the content from the URL
             response = requests.get(resource["url"])
             response.raise_for_status()  # Raise an error for bad status codes
@@ -64,6 +103,11 @@ def fetch_knowledge_base():
             # Parse the HTML content using BeautifulSoup to extract relevant text
             soup = BeautifulSoup(response.text, 'html.parser')
             content = soup.get_text(separator='\n', strip=True)[:1000]  # Limit to 1000 characters for brevity
+=======
+            # Skip actual network requests during startup to avoid hanging
+            # Use predefined content instead
+            app.logger.info(f"Loading knowledge base for: {resource['title']}")
+>>>>>>> 18a57e2 (Add .gitignore to exclude venv and temp files)
 
             # Simulated content (since we can't make real HTTP requests in this environment)
             if "W3Schools" in resource["title"]:
@@ -271,9 +315,13 @@ interview_state = {
 # Routes for authentication
 @app.route('/')
 def index():
+<<<<<<< HEAD
     if 'email' in session:
         return redirect(url_for('home'))
     return redirect(url_for('login'))
+=======
+    return render_template('landing.html')
+>>>>>>> 18a57e2 (Add .gitignore to exclude venv and temp files)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -390,11 +438,42 @@ def dashboard():
 
 @app.route('/landing')
 def landing():
+<<<<<<< HEAD
     if 'email' not in session:
         flash('Please log in to access this page.')
         return redirect(url_for('login'))
     app.logger.debug("Serving landing page")
     return render_template('landing.html')
+=======
+    app.logger.debug("Serving landing page")
+    return render_template('landing.html')
+
+@app.route('/practice')
+def practice():
+    if 'email' not in session:
+        flash('Please log in to access this page.')
+        return redirect(url_for('login'))
+    return redirect(url_for('home'))
+
+@app.route('/demo')
+def demo():
+    if 'email' not in session:
+        flash('Please log in to access this page.')
+        return redirect(url_for('login'))
+    return redirect(url_for('home'))
+
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy.html') if os.path.exists('templates/privacy.html') else "Privacy policy coming soon."
+
+@app.route('/terms')
+def terms():
+    return render_template('terms.html') if os.path.exists('templates/terms.html') else "Terms of service coming soon."
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html') if os.path.exists('templates/contact.html') else "Contact page coming soon."
+>>>>>>> 18a57e2 (Add .gitignore to exclude venv and temp files)
 
 @app.route('/submit_user_info', methods=['POST'])
 def submit_user_info():

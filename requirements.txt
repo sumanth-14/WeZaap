@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Flask==2.3.2
 pydub==0.25.1
 openai==1.70.0
@@ -9,4 +10,17 @@ werkzeug
 gtts 
 openai 
 requests 
+=======
+Flask==2.3.2
+pydub==0.25.1
+openai==1.70.0
+gTTS==2.5.1
+psycopg2-binary
+sqlalchemy 
+python-dotenv 
+werkzeug 
+gtts 
+openai 
+requests 
+>>>>>>> 18a57e2 (Add .gitignore to exclude venv and temp files)
 beautifulsoup4

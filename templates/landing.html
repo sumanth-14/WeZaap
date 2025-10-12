@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>We-Zaap InterviewMate - Get Started</title>
     <style>
         body {
@@ -109,5 +110,612 @@
             <button type="submit">Let's Go!</button>
         </form>
     </div>
+=======
+    <title>WeZaap – AI mock interviews</title>
+    <meta name="description" content="Practice tech interviews with AI. Get role-specific questions, speak your answers, and receive instant feedback and scores.">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="WeZaap – AI mock interviews">
+    <meta property="og:description" content="Practice tech interviews with AI. Get role-specific questions, speak your answers, and receive instant feedback and scores.">
+    <meta property="og:image" content="/static/og.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        'primary-dark': '#4f46e5',
+                        'primary-light': '#818cf8',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS for fine tweaks -->
+    <link rel="stylesheet" href="/static/landing.css">
+    
+    <!-- Skip link for accessibility -->
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #1e293b;
+            color: #f1f5f9;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* Typing animation for AI mockup card */
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end) infinite;
+        }
+        
+        @keyframes typing {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 100%; }
+        }
+        
+        /* Avatar movement animation */
+        @keyframes avatarMove {
+            0%, 100% { transform: translateX(0px); }
+            25% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+        }
+        
+        /* Avatar scale animation for natural presence */
+        @keyframes avatarScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        /* Border glow animation */
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.75; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        /* Avatar glow effect */
+        .avatar-glow {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Responsive 3D tilt - remove on mobile */
+        @media (max-width: 768px) {
+            .relative.bg-slate-800\/90 {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-200 antialiased">
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Main navigation">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-white">WeZaap</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Features</a>
+                        <a href="#how-it-works" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">How it works</a>
+                        <a href="#roles" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Roles</a>
+                        <a href="#faq" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">FAQ</a>
+                        <a href="/practice" class="bg-white text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900">Start practicing</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-button text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900 p-2 rounded-lg" aria-expanded="false" aria-controls="mobile-menu">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="md:hidden mobile-menu hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800 border-t border-slate-700">
+                    <a href="#features" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Features</a>
+                    <a href="#how-it-works" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">How it works</a>
+                    <a href="#roles" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Roles</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">FAQ</a>
+                    <a href="/practice" class="bg-white text-black block px-3 py-2 rounded-lg text-base font-medium hover:bg-primary-light transition-colors mt-4">Start practicing</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="bg-slate-950 py-20 lg:py-32 relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 bg-slate-950/20"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Left Column - Text -->
+                    <div class="space-y-10">
+                        <div class="space-y-6">
+                            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                                Conquer Interviews with 
+                                <span class="bg-gradient-to-r from-indigo-400 to-fuchsia-400 bg-clip-text text-transparent">WeZaap</span>
+                            </h1>
+                            <p class="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl">
+                                Get role-specific questions, speak your answers, and receive instant feedback and scores.
+                            </p>
+                        </div>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="/practice" class="allow-color bg-white hover:bg-gray-200 text-black px-6 py-3 rounded-lg text-lg font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white text-center shadow-lg">Start practicing</a>
+                            <a href="/demo" class="allow-color border border-white text-white px-6 py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white text-center">Try a demo</a>
+                        </div>
+                        
+                        <!-- Social Proof
+                        <div class="flex items-center space-x-4 pt-4">
+                            <div class="flex -space-x-2">
+                                <div class="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full border-2 border-slate-900 flex items-center justify-center text-white text-sm font-semibold">A</div>
+                                <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-2 border-slate-900 flex items-center justify-center text-white text-sm font-semibold">B</div>
+                                <div class="w-10 h-10 bg-gradient-to-r from-pink-500 to-fuchsia-500 rounded-full border-2 border-slate-900 flex items-center justify-center text-white text-sm font-semibold">C</div>
+                                <div class="w-10 h-10 bg-gradient-to-r from-fuchsia-500 to-indigo-500 rounded-full border-2 border-slate-900 flex items-center justify-center text-white text-sm font-semibold">+</div>
+                            </div>
+                            <p class="text-gray-300 font-medium">Loved by thousands of learners</p>
+                        </div> -->
+                    </div>
+                    
+                    <!-- Right Column - AI Mockup Card -->
+                    <div class="flex justify-center lg:justify-end allow-color">
+                        <div class="relative w-full max-w-md">
+                            <!-- Animated Gradient Border -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 rounded-xl blur-sm opacity-75 animate-pulse"></div>
+                            
+                            <!-- Main Card with 3D Tilt -->
+                            <div class="relative bg-slate-800/90 backdrop-blur-sm rounded-xl p-6 border border-indigo-500/30 shadow-2xl hover:shadow-indigo-500/25 transition-all duration-500 hover:-translate-y-2" 
+                                 style="transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);">
+                                
+                                <!-- Header - AI Question -->
+                                <div class="mb-6">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold">Q</div>
+                                        <span class="text-sm font-medium text-gray-400">SWE Interview Question</span>
+                                        <span class="text-lg">✨</span>
+                                    </div>
+                                    <p class="text-white text-lg font-medium leading-relaxed">
+                                        Can you explain JavaScript closures?
+                                    </p>
+                                </div>
+                                
+                                <!-- Main Body - Split Layout -->
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <!-- Left Side - Candidate Video Feed -->
+                                    <div class="flex flex-col items-center space-y-3">
+                                        <div class="relative">
+                                            <!-- Professional Male Avatar -->
+                                            <div class="relative w-24 h-24 rounded-full border-2 border-emerald-400 shadow-md avatar-container" 
+                                                 style="animation: avatarScale 3s ease-in-out infinite;">
+                                                <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-2xl">
+                                                    <img src="{{ url_for('static', filename='avatar.jpg') }}" 
+                                                    alt="Candidate Avatar" 
+                                                    class="w-full h-full rounded-full object-cover" />
+                                                </div>
+                                                <!-- Pulsing Border Glow -->
+                                                <!-- <div class="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-emerald-400 via-indigo-400 to-emerald-400 animate-pulse opacity-75" 
+                                                     style="animation: borderGlow 2s ease-in-out infinite;"></div> -->
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <p class="text-xs text-gray-300 font-medium">Kenny</p>
+                                            <p class="text-xs text-emerald-400">Camera On</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Side - Answer Area -->
+                                    <div class="flex items-start justify-end">
+                                        <div class="bg-slate-700/90 rounded-lg p-4 border border-slate-600/50 shadow-inner max-w-full">
+                                            <div class="flex items-center space-x-2 mb-3">
+                                                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                                                <span class="text-xs text-gray-300">Speaking...</span>
+                                            </div>
+                                            <div class="space-y-3">
+                                                <p class="text-gray-200 text-sm leading-relaxed typing-animation">
+                                                    Sure, a closure in JavaScript is a function that has access to variables in its outer scope...
+                                                </p>
+                                                <!-- Microphone Waveform Icon -->
+                                                <div class="flex items-center space-x-2">
+                                                    <svg class="w-4 h-4 text-emerald-400 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    <div class="flex space-x-1">
+                                                        <div class="w-1 h-3 bg-emerald-400 rounded animate-pulse"></div>
+                                                        <div class="w-1 h-4 bg-emerald-500 rounded animate-pulse" style="animation-delay: 0.1s"></div>
+                                                        <div class="w-1 h-2 bg-emerald-400 rounded animate-pulse" style="animation-delay: 0.2s"></div>
+                                                        <div class="w-1 h-3 bg-emerald-500 rounded animate-pulse" style="animation-delay: 0.3s"></div>
+                                                        <div class="w-1 h-4 bg-emerald-400 rounded animate-pulse" style="animation-delay: 0.4s"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Footer - Status Bar -->
+                                <div class="flex items-center justify-between pt-4 border-t border-slate-600/50">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                                        <span class="text-xs text-gray-400">Recording...</span>
+                                    </div>
+                                    <div class="text-xs text-gray-400">AI Analysis Active</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Proof
+        <div class="bw-scope">
+            <section class="bg-slate-900 py-12 ring-1 ring-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center">
+                        <p class="text-sm text-gray-400 mb-6">Trusted by learners at</p>
+                        <div class="flex justify-center items-center space-x-8 opacity-60">
+                            <div class="text-gray-400 font-medium">Tech University</div>
+                            <div class="text-gray-400 font-medium">Code Academy</div>
+                            <div class="text-gray-400 font-medium">Dev Bootcamp</div>
+                            <div class="text-gray-400 font-medium">Career Center</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div> -->
+        
+        <!-- Features Section -->
+        <div class="bw-scope">
+            <section id="features" class="py-16 lg:py-24 bg-slate-950">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Everything you need to ace interviews</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Comprehensive practice tools designed to help you succeed in technical interviews.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="bg-slate-900 rounded-lg p-8 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Role-specific questions</h3>
+                            <p class="text-gray-300">Engineer, Data, PM, UX, DevOps, BA</p>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="bg-slate-900 rounded-lg p-8 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Speak and record</h3>
+                            <p class="text-gray-300">Practice answers in your own words</p>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="bg-slate-900 rounded-lg p-8 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Instant scoring</h3>
+                            <p class="text-gray-300">Get feedback with strengths and next steps</p>
+                        </div>
+                        
+                        <!-- Feature 4
+                        <div class="bg-slate-900 rounded-lg p-8 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Transcription with Whisper</h3>
+                            <p class="text-gray-300">Accurate transcripts for review</p>
+                        </div>
+                        
+                        <!-- Feature 5 -->
+                        <!-- <div class="bg-slate-900 rounded-lg p-8 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Actionable feedback</h3>
+                            <p class="text-gray-300">Clear criteria and improvement tips</p>
+                        </div> -->
+                        
+                        <!-- Feature 6 -->
+                        <!-- <div class="bg-slate-900 rounded-lg p-8 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Resource hub</h3>
+                            <p class="text-gray-300">Targeted links to practice docs</p>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- How it works Section -->
+        <div class="bw-scope">
+            <section id="how-it-works" class="bg-slate-900 py-16 lg:py-24 ring-1 ring-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">How it works</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Simple steps to improve your interview skills.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Step 1 -->
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-slate-800 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 ring-1 ring-slate-700">1</div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Pick a role</h3>
+                            <p class="text-gray-300">Choose from Software Engineer, Data Scientist, Product Manager, and more.</p>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-slate-800 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 ring-1 ring-slate-700">2</div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Get questions</h3>
+                            <p class="text-gray-300">Receive tailored questions based on your role and difficulty level.</p>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-slate-800 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 ring-1 ring-slate-700">3</div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Record your answers</h3>
+                            <p class="text-gray-300">Speak your responses naturally using your microphone.</p>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-slate-800 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 ring-1 ring-slate-700">4</div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Review scores and feedback</h3>
+                            <p class="text-gray-300">Get detailed feedback and scores to improve your performance.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Supported Roles Section -->
+        <div class="bw-scope">
+            <section id="roles" class="py-16 lg:py-24 bg-slate-950">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Supported roles</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Practice interviews for the most in-demand tech roles.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                        <!-- Software Engineer -->
+                        <div class="text-center p-6 bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-4 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white">Software Engineer</h3>
+                        </div>
+                        
+                        <!-- Data Scientist -->
+                        <div class="text-center p-6 bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-4 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white">Data Scientist</h3>
+                        </div>
+                        
+                        <!-- Product Manager -->
+                        <div class="text-center p-6 bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-4 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white">Product Manager</h3>
+                        </div>
+                        
+                        <!-- UX Designer -->
+                        <div class="text-center p-6 bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-4 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white">UX Designer</h3>
+                        </div>
+                        
+                        <!-- DevOps -->
+                        <div class="text-center p-6 bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-4 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white">DevOps Engineer</h3>
+                        </div>
+                        
+                        <!-- Business Analyst -->
+                        <div class="text-center p-6 bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 hover:shadow-xl hover:border-slate-700 transition-all ring-1 ring-slate-800">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-4 ring-1 ring-slate-700">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white">Business Analyst</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Privacy Callout
+        <div class="bw-scope">
+            <section class="bg-slate-900 py-12 ring-1 ring-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-slate-800 rounded-lg p-8 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 text-center ring-1 ring-slate-700">
+                        <p class="text-gray-300 mb-4">
+                            Your recordings are processed to give feedback. 
+                            <a href="/privacy" class="text-gray-400 hover:text-white underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">Learn more</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div> -->
+        
+        <!-- FAQ Section -->
+        <div class="bw-scope">
+            <section id="faq" class="py-16 lg:py-24 bg-slate-950">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Frequently asked questions</h2>
+                        <p class="text-xl text-gray-300">Everything you need to know about WeZaap.</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- FAQ 1 -->
+                        <div class="bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 ring-1 ring-slate-800">
+                            <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-lg" aria-expanded="false">
+                                <span class="font-semibold text-white">Do I need a microphone?</span>
+                                <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4">
+                                <p class="text-gray-300">Yes, any built-in mic works. We recommend using headphones to avoid echo and ensure clear audio quality.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 2 -->
+                        <div class="bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 ring-1 ring-slate-800">
+                            <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-lg" aria-expanded="false">
+                                <span class="font-semibold text-white">What does AI evaluate?</span>
+                                <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4">
+                                <p class="text-gray-300">Clarity, correctness, structure, and relevance to the question. We provide detailed feedback on your technical knowledge and communication skills.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 3 -->
+                        <div class="bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 ring-1 ring-slate-800">
+                            <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-lg" aria-expanded="false">
+                                <span class="font-semibold text-white">Can I retry questions?</span>
+                                <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4">
+                                <p class="text-gray-300">Yes. Improve and compare. You can retry any question to practice and see how your answers improve over time.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 4 -->
+                        <div class="bg-slate-900 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-slate-800 ring-1 ring-slate-800">
+                            <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-lg" aria-expanded="false">
+                                <span class="font-semibold text-white">Is it free?</span>
+                                <svg class="faq-icon w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4">
+                                <p class="text-gray-300">A free practice set is available. You can try our basic features and upgrade for more advanced practice sessions and detailed analytics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <div class="bw-scope">
+        <footer class="bg-slate-950 text-white py-12 ring-1 ring-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-gray-400">© WeZaap</p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="/privacy" class="text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">Privacy</a>
+                        <a href="/terms" class="text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">Terms</a>
+                        <a href="/contact" class="text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="/static/landing.js"></script>
+    
+    <!-- Skip link focus script -->
+    <script>
+        // Focus first interactive element when skip link is used
+        document.addEventListener('DOMContentLoaded', function() {
+            const skipLink = document.querySelector('.skip-link');
+            if (skipLink) {
+                skipLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const firstInteractive = target.querySelector('a, button, input, select, textarea');
+                        if (firstInteractive) {
+                            firstInteractive.focus();
+                        } else {
+                            target.focus();
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+>>>>>>> 18a57e2 (Add .gitignore to exclude venv and temp files)
 </body>
 </html>
